@@ -13,10 +13,10 @@
                     <font-awesome-icon class="sidebar-icons" icon="list-ul"/>
                     <a class="sidebar-links">MyTodos</a>
                 </router-link>
-                <li  class="sidebar-list__links">
+                <router-link to="/stats" class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="signal"/>
                     <a class="sidebar-links">Stats</a>
-                </li>
+                </router-link>
                 <li  class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="chart-bar"/>
                     <a class="sidebar-links">Charts</a>

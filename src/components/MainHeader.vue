@@ -46,9 +46,7 @@ export default {
     color: #2A2B2E;
     font-size: 16px;
     font-weight: bold;
-
     cursor: pointer;
-    outline: none;
 }
 
 .search-input:hover,
