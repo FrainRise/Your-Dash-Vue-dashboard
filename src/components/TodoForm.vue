@@ -6,7 +6,8 @@
             <input type="text" class="todo-form__input" v-model="todo.name" placeholder="Name of activity..." />
             <input type="text" class="todo-form__input" v-model="todo.description" placeholder="Description..." />
             <input type="text" class="todo-form__input" v-model="todo.expirationDate" placeholder="Expiration date..." />
-            <button class="todo-form__add" @click="createTodo">Create</button>            
+            <p class="info-message" v-if="isAllFieldsFilled">Please fill all fields...</p>
+            <button class="todo-form__add" @click="createTodo" :disabled="isAllFieldsFilled">Create</button>            
         </form>
     </div>
 </template>
@@ -29,19 +30,24 @@ export default {
                 description: '',
                 expirationDate: '',
                 isDone: false
-            },
+            }
         }
     },
     methods: {
         createTodo() {
             this.todo.id = Date.now()
             this.$emit('createTodo', this.todo)
-            
+        
             this.todo = {
                 name: '',
                 description: '',
                 expirationDate: ''
             }
+        }
+    },
+    computed: {
+        isAllFieldsFilled() {
+            return this.todo.name.length === 0 || this.todo.description.length === 0 || this.todo.expirationDate.length === 0
         }
     },
 }
@@ -101,9 +107,14 @@ export default {
     justify-content: space-between;
 }
 
+.info-message {
+    opacity: .5;
+    font-style: italic;
+}
+
 .todo-form__add,
 .todo-form__cancel {
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 15px 25px;
     border: none;
     color: #2A2B2E;
@@ -126,10 +137,10 @@ export default {
     box-shadow: 1px 2px 5px  #000;
 }
 
-.todo-form__cancel:hover {
-    background: #bebebe;
-    color: #000;
-    box-shadow: 1px 2px 5px  #000;
+.todo-form__add:disabled {
+    opacity: .5;
+    background: rgb(192, 192, 192);
+    cursor: auto;
 }
 
 .btn__close {

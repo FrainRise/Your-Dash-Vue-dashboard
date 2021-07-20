@@ -17,13 +17,13 @@
                     <font-awesome-icon class="sidebar-icons" icon="signal"/>
                     <a class="sidebar-links">Stats</a>
                 </router-link>
+                <router-link to="/news" class="sidebar-list__links">
+                    <font-awesome-icon class="sidebar-icons" icon="info-circle"/>
+                    <a class="sidebar-links">News</a>
+                </router-link>
                 <li  class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="chart-bar"/>
                     <a class="sidebar-links">Charts</a>
-                </li>
-                <li  class="sidebar-list__links">
-                    <font-awesome-icon class="sidebar-icons" icon="info-circle"/>
-                    <a class="sidebar-links">Information</a>
                 </li>
                 <li  class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="sign-out-alt"/>
@@ -36,7 +36,6 @@
 
 <script>
 export default {
-
 }
 </script>
 

@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 .stats {
     display: flex;
     flex-wrap: wrap;
