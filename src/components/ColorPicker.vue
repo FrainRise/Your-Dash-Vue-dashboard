@@ -66,6 +66,7 @@ export default {
 .color-preview {
     width: 500px;
     height: 300px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
 }
 
 </style>

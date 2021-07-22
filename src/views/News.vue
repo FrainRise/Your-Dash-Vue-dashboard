@@ -1,5 +1,6 @@
 <template>
-    <div class="news">
+    <my-loader v-if="isLoading" />
+    <div class="news" v-else>
         <my-alert v-show="isRefreshed" :closeAlert="closeAlert" />
         <h2 class="news__title">Live news only for you</h2>
         <button class="btn__refresh" @click="refreshTheNews"><font-awesome-icon icon="sync-alt"/></button>
@@ -21,23 +22,27 @@
 <script>
 import { fecthLiveNewsData } from '../api/index'
 import MyAlert from '@/components/UI/MyAlert.vue'
+import MyLoader from '@/components/UI/MyLoader.vue'
 
 export default {
     components: {
-        MyAlert
+        MyAlert,
+        MyLoader
     },
     data() {
         return {
             news: [],
             isRefreshed: false,
-            componentKey: 0
+            componentKey: 0,
+            isLoading: true
         }
     },
     async mounted() {
+        setTimeout(()=> {
+            this.isLoading = false
+        }, 4000)
         const receivedData = await fecthLiveNewsData()
         this.news = receivedData.data.feed;
-
-        console.log(this.news)
     },
     methods: {
         async refreshTheNews() {
@@ -47,7 +52,7 @@ export default {
             this.isRefreshed = true
             setTimeout(() => {
                 this.isRefreshed = false
-            }, 5000)
+            }, 3000)
 
             console.log('Refreshed data')
         },
