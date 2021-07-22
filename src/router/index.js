@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Todos from '../views/Todos.vue'
 import Stats from '../views/Stats.vue'
 import News from '../views/News.vue'
+import Colors from '../views/Colors.vue'
 
 const routes = [
   {
@@ -27,6 +28,10 @@ const routes = [
   {
     path: '/news',
     component: News
+  },
+  {
+    path: '/colors',
+    component: Colors
   }
 ]
 

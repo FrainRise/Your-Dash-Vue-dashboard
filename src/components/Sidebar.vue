@@ -21,10 +21,10 @@
                     <font-awesome-icon class="sidebar-icons" icon="info-circle"/>
                     <a class="sidebar-links">News</a>
                 </router-link>
-                <li  class="sidebar-list__links">
-                    <font-awesome-icon class="sidebar-icons" icon="chart-bar"/>
-                    <a class="sidebar-links">Charts</a>
-                </li>
+                <router-link to="/colors" class="sidebar-list__links">
+                    <font-awesome-icon class="sidebar-icons" icon="palette"/>
+                    <a class="sidebar-links">Colors</a>
+                </router-link>
                 <li  class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="sign-out-alt"/>
                     <a class="sidebar-links">Logout</a>
@@ -74,6 +74,7 @@ export default {
 
 .sidebar-list__links {
     display: flex;
+    align-items: center;
     width: 100%;
     font-size: 18px;
     font-weight: bold;

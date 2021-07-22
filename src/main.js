@@ -19,9 +19,9 @@ import {
     faFunnelDollar,
     faHandSparkles,
     faChartLine,
-    faDollarSign
-
-
+    faDollarSign,
+    faSyncAlt,
+    faPalette
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -30,7 +30,7 @@ const iconsArray = [
                     faHome, faListUl, faChartBar, faSignal, faInfoCircle, 
                     faSignOutAlt, faUserAlt, faBell, faAngleDown, faSearch, 
                     faPen, faTrashAlt, faTimes, faFunnelDollar, faHandSparkles,
-                    faChartLine, faDollarSign
+                    faChartLine, faDollarSign, faSyncAlt, faPalette
                 ]
 
 iconsArray.forEach((item) => library.add(item))

@@ -1,7 +1,8 @@
 <template>
     <div class="news">
+        <my-alert v-show="isRefreshed" :closeAlert="closeAlert" />
         <h2 class="news__title">Live news only for you</h2>
-
+        <button class="btn__refresh" @click="refreshTheNews"><font-awesome-icon icon="sync-alt"/></button>
         <div class="news-list">
             <div class="article-item" v-for="article in news" :key="article.contentKey" :style="{backgroundImage: 'url(' + article.images[0].url + ')' }">
                 <div class="text-caption">
@@ -9,7 +10,7 @@
                     <p class="article__description">{{ article.description}}</p>
                     <div class="article-footer">
                         <h6 class="article__author">{{ article.byline !== undefined || null ? article.byline: 'Anonymous'}}</h6>
-                        <h6 class="article__date">{{ article.published.slice(0, 10).split('-').reverse().join('.') }}</h6>
+                        <h6 class="article__date">{{ article.published.slice(11, 16) }} {{ article.published.slice(0, 10).split('-').reverse().join('.') }}</h6>
                     </div>  
                 </div>
             </div>
@@ -19,11 +20,17 @@
 
 <script>
 import { fecthLiveNewsData } from '../api/index'
+import MyAlert from '@/components/UI/MyAlert.vue'
 
 export default {
+    components: {
+        MyAlert
+    },
     data() {
         return {
-            news: []
+            news: [],
+            isRefreshed: false,
+            componentKey: 0
         }
     },
     async mounted() {
@@ -31,15 +38,47 @@ export default {
         this.news = receivedData.data.feed;
 
         console.log(this.news)
+    },
+    methods: {
+        async refreshTheNews() {
+            const refreshedData = await fecthLiveNewsData()
+            this.news = refreshedData.data.feed;
+
+            this.isRefreshed = true
+            setTimeout(() => {
+                this.isRefreshed = false
+            }, 5000)
+
+            console.log('Refreshed data')
+        },
+        closeAlert(){
+            this.isRefreshed = false
+        }
     }
 }
 </script>
 
 <style >
 .news__title {
-    padding: 50px 0;
+    padding: 75px 0 50px 0;
     font-size: 35px;    
     text-transform: uppercase;
+}
+
+.btn__refresh {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    float: right;
+    padding: 0 50px;
+    cursor: pointer;
+    
+    transition: all .25s linear;
+}
+
+.btn__refresh:hover {
+    color: #87FF65;
+    animation: 1s infinite linear spin;
 }
 
 .news-list {
@@ -111,5 +150,10 @@ export default {
 .article__date {
     padding: 20px 0;
     font: italic 700 15px sans-serif;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg);}
+    100%{ transform: rotate(360deg);}
 }
 </style>

@@ -1,0 +1,51 @@
+<template>
+    <div class="colors-palette">
+        <h2 class="colors-palette__title">Colors Palette</h2>
+        <div class="colors-group">
+            <div class="color-item" v-for="color in colors" :key="color.id" :style="{backgroundColor: color.hex, color: color.text}">
+                <h2 class="color-hex">{{ color.hex }}</h2>
+                <h6 class="color-name">{{ color.name }}</h6>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        colors: {
+            type: Array,
+            require: true
+        }
+    }
+}
+</script>
+
+<style scoped>
+
+.colors-palette__title {
+    padding: 50px 0;
+    font-size: 35px;    
+    text-transform: uppercase;
+}
+
+.colors-group {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #fff;
+    padding: 2% 5%;
+    border-radius: 25px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+}
+
+.color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 300px;
+    width: 20%;
+    padding: 3%;
+}
+</style>

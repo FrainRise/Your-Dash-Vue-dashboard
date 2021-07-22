@@ -30,10 +30,10 @@ export default {
     data() {
         return {
             incomeList: [
-                {title: 'Total Income', amount: '125,000', savePercentage: '25', themeColor: '#4976e7', iconName: 'dollar-sign'},
-                {title: 'Total Expenses', amount: '25,000', savePercentage: '25', themeColor: '#7cc6fa', iconName: 'funnel-dollar'},
-                {title: 'Cash on hand', amount: '50,000', savePercentage: '25', themeColor: '#9e71ce', iconName: 'hand-sparkles'},
-                {title: 'Net Profit Margin', amount: '75,000', savePercentage: '75', themeColor: '#85d1b3', iconName: 'chart-line'},
+                {title: 'Total Income', amount: '125,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(145, 169, 229), rgb(84, 125, 229) 78%)', iconName: 'dollar-sign'},
+                {title: 'Total Expenses', amount: '25,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(182, 220, 247), rgb(70, 175, 249) 78%)', iconName: 'funnel-dollar'},
+                {title: 'Cash on hand', amount: '50,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(206, 164, 251), rgb(158, 113, 206) 78%)', iconName: 'hand-sparkles'},
+                {title: 'Net Profit Margin', amount: '75,000', savePercentage: '75', themeColor: 'linear-gradient(315deg, rgb(180, 255, 225), rgb(133, 209, 179) 78%)', iconName: 'chart-line'},
             ],
         
             seriesPolarArea: [125000, 25000, 50000, 75000],
