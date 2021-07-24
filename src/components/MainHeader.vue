@@ -5,22 +5,53 @@
             <input class="search-input" type="text" placeholder="Search here..." />
         </div>
         <div class="user-profile">
-            <font-awesome-icon class="header-icons" icon="bell" />
-            <div class="user-settings">
-                <font-awesome-icon class="header-icons" icon="user-alt" />
-                <font-awesome-icon class="header-icons small-icon" icon="angle-down" />
-            </div>
+            <notification-list 
+                :isShownNotifications="isShownNotifications"
+                :showNotificationList="showNotificationList"
+                :closeNotificationList="closeNotificationList"
+            />
+            <user-profile 
+                :isShownProfile="isShownProfile"
+                :showDropdown="showDropdown"
+                :closeDropdown="closeDropdown"
+            />
         </div>
     </div>
 </template>
 
 <script>
+import UserProfile from '@/components/UserProfile.vue'
+import NotificationList from '@/components/NotificationList.vue'
+
 export default {
-    
+    components: {
+        UserProfile,
+        NotificationList
+    },
+    props: {
+        isShownProfile: {
+            type: Boolean
+        },
+        showDropdown: {
+            type: Function
+        },
+        closeDropdown: {
+            type: Function
+        },
+        isShownNotifications: {
+            type: Boolean
+        },
+        showNotificationList: {
+            type: Function
+        },
+        closeNotificationList: {
+            type: Function
+        }
+    }
 }
 </script>
 
-<style scoped>
+<style >
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -66,21 +97,14 @@ export default {
 .user-profile {
     width: 15%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .user-profile .header-icons:hover,
-.user-profile .user-settings:hover {
+.user-profile .user__icons-group:hover,
+.notification-group:hover .notification {
     color: #000;
-}
-
-.header-icons {
-    font-size: 25px;
-    cursor: pointer;
-}
-
-.small-icon {
-    font-size: 20px;
 }
 
 </style>

@@ -1,7 +1,14 @@
 <template>
   <sidebar />
   <div class="container">
-    <main-header />
+    <main-header 
+      :isShownProfile="isShownProfile"
+      :isShownNotifications="isShownNotifications"
+      :closeDropdown="closeDropdown"
+      :closeNotificationList="closeNotificationList"
+      :showDropdown="showDropdown"
+      :showNotificationList="showNotificationList"
+    />
     <router-view/>
   </div>
 
@@ -15,6 +22,26 @@ export default {
   components: {
     MainHeader,
     Sidebar
+  },
+  data() {
+    return {
+      isShownProfile: false,
+      isShownNotifications: false
+    }
+  },
+  methods: {
+    showDropdown() {
+      return this.isShownProfile = !this.isShownProfile
+    },
+    showNotificationList() {
+      return this.isShownNotifications = !this.isShownNotifications
+    },
+    closeNotificationList() {
+      this.isShownNotifications = false
+    },
+    closeDropdown(){
+      this.isShownProfile = false
+    }
   }
 }
 </script>
@@ -45,5 +72,6 @@ body {
   width: 100%;
   height: 100vh;
   padding-left: 300px;
+  z-index: 1;
 }
 </style>
