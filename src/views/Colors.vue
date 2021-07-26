@@ -8,6 +8,7 @@
 <script>
 import ColorsPalette from "@/components/ColorsPalette.vue"
 import ColorPicker from "@/components/ColorPicker.vue"
+
 export default {
     components: {
         ColorsPalette,
@@ -22,7 +23,6 @@ export default {
                 {id: 4, name: 'Granny Smith Apple', hex: '#ACEB98', text: '#000'},
                 {id: 5, name: 'Screamin Green', hex: '#87FF65', text: '#000'},
             ],
-
             defaultColor: '#87FF65'
         }
     },
@@ -31,6 +31,6 @@ export default {
 
 <style scoped>
 .colors {
-    padding: 50px;
+    padding: 25px 50px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="colors-palette">
-        <h2 class="colors-palette__title">Colors Palette</h2>
+        <my-title :titleText="titleTextPalette" />
         <div class="colors-group">
             <div class="color-item" v-for="color in colors" :key="color.id" :style="{backgroundColor: color.hex, color: color.text}">
                 <h2 class="color-hex">{{ color.hex }}</h2>
@@ -11,13 +11,22 @@
 </template>
 
 <script>
+import MyTitle from '@/components/UI/MyTitle.vue'
 export default {
+    components: {
+        MyTitle
+    },
     props: {
         colors: {
             type: Array,
             require: true
         }
-    }
+    },
+    data() {
+        return {
+            titleTextPalette: 'Colors Palette'
+        }
+    },
 }
 </script>
 

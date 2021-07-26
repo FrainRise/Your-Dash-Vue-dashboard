@@ -1,13 +1,18 @@
 <template>
     <div class="charts">
-        <h2 class="charts__title"> Charts for your Future </h2>
+        <my-title :titleText="titleTextCharts" />
     </div>
 </template>
 
 <script>
+import MyTitle from '@/components/UI/MyTitle.vue'
 export default {
+    components: {
+        MyTitle
+    },
     data() {
         return {
+            titleTextCharts: 'Charts for your Future',
             testData: [
                 {}
             ]

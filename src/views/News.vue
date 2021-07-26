@@ -5,7 +5,7 @@
             v-show="isRefreshed" 
             :closeAlert="closeAlert" 
         />
-        <h2 class="news__title">Live news only for you</h2>
+        <my-title class="news__title" :titleText="titleText"/>
         <button class="btn__refresh" @click="refreshTheNews"><font-awesome-icon icon="sync-alt"/></button>
         <div class="news-list">
             <div class="article-item" 
@@ -33,12 +33,14 @@
 import { fecthLiveNewsData } from '../api/index'
 import MyAlert from '@/components/UI/MyAlert.vue'
 import MyLoader from '@/components/UI/MyLoader.vue'
+import MyTitle from '@/components/UI/MyTitle.vue'
 import * as noImage from '@/assets/img/no-image.svg'
 
 export default {
     components: {
         MyAlert,
-        MyLoader
+        MyLoader,
+        MyTitle
     },
     data() {
         return {
@@ -46,7 +48,8 @@ export default {
             isRefreshed: false,
             componentKey: 0,
             isLoading: true,
-            noImage: noImage
+            noImage: noImage,
+            titleText: 'Live news only for you'
         }
     },
     async mounted() {
@@ -75,13 +78,7 @@ export default {
 }
 </script>
 
-<style >
-.news__title {
-    padding: 75px 0 50px 0;
-    font-size: 35px;    
-    text-transform: uppercase;
-}
-
+<style>
 .btn__refresh {
     background: transparent;
     border: none;

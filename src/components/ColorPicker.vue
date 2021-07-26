@@ -1,6 +1,6 @@
 <template>
     <div class="color-picker">
-        <h2 class="color-picker__title">Color Picker</h2>
+        <my-title :titleText="titleTextPicker" />
         <div class="color-picker-group">
             <color-picker 
                 class="picker"
@@ -18,10 +18,12 @@
 
 <script>
 import { ColorPicker } from 'vue-color-kit'
+import MyTitle from '@/components/UI/MyTitle.vue'
 import 'vue-color-kit/dist/vue-color-kit.css'
 export default {
     components: {
-        ColorPicker
+        ColorPicker,
+        MyTitle
     },
     props: {
         defaultColor: {
@@ -30,7 +32,8 @@ export default {
     },
     data() {
         return {
-            color: this.defaultColor
+            color: this.defaultColor,
+            titleTextPicker: 'Color Picker'
         }
     },
     methods: {
@@ -43,12 +46,6 @@ export default {
 </script>
 
 <style scoped>
-.color-picker__title {
-    padding: 50px 0;
-    font-size: 35px;    
-    text-transform: uppercase;
-}
-
 .color-picker-group {
     display: flex;
     justify-content: space-evenly;

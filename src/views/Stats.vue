@@ -1,5 +1,5 @@
 <template>
-    <h2 class="stats__title">Your Own Business Stats</h2>
+    <my-title :titleText="titleTextStats" />
     <div class="stats">
             <div 
                 class="business-info" 
@@ -23,12 +23,15 @@
 
 <script>
 import VueApexCharts from 'vue3-apexcharts'
+import MyTitle from '@/components/UI/MyTitle.vue'
 export default {
     components: {
         apexcharts: VueApexCharts,
+        MyTitle
     },
     data() {
         return {
+            titleTextStats: 'Your Own Business Stats',
             incomeList: [
                 {title: 'Total Income', amount: '125,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(145, 169, 229), rgb(84, 125, 229) 78%)', iconName: 'dollar-sign'},
                 {title: 'Total Expenses', amount: '25,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(182, 220, 247), rgb(70, 175, 249) 78%)', iconName: 'funnel-dollar'},
@@ -87,12 +90,6 @@ export default {
     gap: 5px;
     justify-content: space-around;
     padding: 5%;
-}
-
-.stats__title {
-    padding-top: 50px;
-    font-size: 35px;    
-    text-transform: uppercase;
 }
 
 .business-info {

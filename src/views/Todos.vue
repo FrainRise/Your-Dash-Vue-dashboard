@@ -1,6 +1,6 @@
 <template>
     <div class="todos">
-        <h2 class="todos__title">Your Plans list</h2>
+        <my-title :titleText="titleTextTodos" />
         <p class="todos__descrp">Use '+' button below to add new plan</p>
         <hr class="divine-line" />
         <todo-list 
@@ -16,10 +16,18 @@
 
 <script>
 import TodoList from '@/components/TodoList.vue'
+import MyTitle from '@/components/UI/MyTitle.vue'
+
 export default {
     components:{
-        TodoList
-    }    
+        TodoList,
+        MyTitle
+    },
+    data() {
+        return {
+            titleTextTodos: 'Your Plans list'
+        }
+    }, 
 }
 </script>
 
@@ -28,12 +36,6 @@ export default {
     height: 90vh;
     position: relative;
     padding: 25px;
-}
-
-.todos__title {
-    margin-top: 50px;
-    font-size: 35px;
-    text-transform: uppercase;
 }
 
 .todos__descrp {

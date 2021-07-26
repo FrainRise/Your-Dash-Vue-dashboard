@@ -152,11 +152,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: transform .25s linear;
-}
-
-.notifcation-list__item:hover {
-    transform: scale(1.1);
 }
 
 .notification-icon {
