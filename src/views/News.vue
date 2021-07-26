@@ -1,16 +1,26 @@
 <template>
     <my-loader v-if="isLoading" />
     <div class="news" v-else>
-        <my-alert v-show="isRefreshed" :closeAlert="closeAlert" />
+        <my-alert   
+            v-show="isRefreshed" 
+            :closeAlert="closeAlert" 
+        />
         <h2 class="news__title">Live news only for you</h2>
         <button class="btn__refresh" @click="refreshTheNews"><font-awesome-icon icon="sync-alt"/></button>
         <div class="news-list">
-            <div class="article-item" v-for="article in news" :key="article.contentKey" :style="{backgroundImage: 'url(' + article.images[0].url + ')' }">
+            <div class="article-item" 
+                v-for="article in news" :key="article.contentKey" 
+                :style="[
+                    article.images[0] ? 
+                    {'backgroundImage': 'url(' + article.images[0].url + ')'}
+                    : {'backgroundImage': 'url('+ noImage +')'}
+                ]"
+            >
                 <div class="text-caption">
                     <h2 class="article__title">{{ article.headline }}</h2>
                     <p class="article__description">{{ article.description}}</p>
                     <div class="article-footer">
-                        <h6 class="article__author">{{ article.byline !== undefined || null ? article.byline: 'Anonymous'}}</h6>
+                        <h6 class="article__author">{{ article.byline ? article.byline: 'Anonymous'}}</h6>
                         <h6 class="article__date">{{ article.published.slice(11, 16) }} {{ article.published.slice(0, 10).split('-').reverse().join('.') }}</h6>
                     </div>  
                 </div>
@@ -23,6 +33,7 @@
 import { fecthLiveNewsData } from '../api/index'
 import MyAlert from '@/components/UI/MyAlert.vue'
 import MyLoader from '@/components/UI/MyLoader.vue'
+import * as noImage from '@/assets/img/no-image.svg'
 
 export default {
     components: {
@@ -34,7 +45,8 @@ export default {
             news: [],
             isRefreshed: false,
             componentKey: 0,
-            isLoading: true
+            isLoading: true,
+            noImage: noImage
         }
     },
     async mounted() {
@@ -111,7 +123,8 @@ export default {
     max-height: 100%;
 }
 
-.article-item:hover .text-caption .article__description {
+.article-item:hover .text-caption .article__description,
+.article-item:hover .text-caption .article__title {
     overflow: visible;
     display: block;
     margin: 25px 0;
@@ -138,6 +151,10 @@ export default {
 }
 
 .article__title {
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     margin: 10px 0;
     font-size: 22px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);

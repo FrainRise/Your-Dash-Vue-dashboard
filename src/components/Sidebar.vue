@@ -7,7 +7,7 @@
             <ul class="sidebar-list">
                 <router-link to="/" class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="home"/>
-                    <a class="sidebar-links">Dashboard</a>
+                    <a class="sidebar-links">Home</a>
                 </router-link>
                 <router-link to="/todos" class="sidebar-list__links"> 
                     <font-awesome-icon class="sidebar-icons" icon="list-ul"/>
@@ -16,6 +16,10 @@
                 <router-link to="/stats" class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="signal"/>
                     <a class="sidebar-links">Stats</a>
+                </router-link>
+                <router-link to="/charts" class="sidebar-list__links">
+                    <font-awesome-icon class="sidebar-icons" icon="chart-pie"/>
+                    <a class="sidebar-links">Charts</a>
                 </router-link>
                 <router-link to="/news" class="sidebar-list__links">
                     <font-awesome-icon class="sidebar-icons" icon="info-circle"/>
@@ -101,6 +105,4 @@ export default {
 .sidebar-list__links .sidebar-links {
     width: 33%;
 }
-
-
 </style>

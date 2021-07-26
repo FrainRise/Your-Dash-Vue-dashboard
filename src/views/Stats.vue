@@ -72,8 +72,7 @@ export default {
                 xaxis: {
                     type: 'string',
                     categories: ["March", "April", "May", "June", "Jule", "August", "September"]
-                },
-
+                }
             }
         }
     }
@@ -174,5 +173,40 @@ export default {
     50% { -webkit-transform: rotate(0); transform: rotate(0); }
     75% { -webkit-transform: rotate(-20deg); transform: rotate(-20deg);}
     100% { -webkit-transform: rotate(0); transform: rotate(0);}
+}
+
+
+/* RESPONISVE */
+
+@media (max-width: 1500px) {
+    .charts-group {
+        flex-direction: column;
+    } 
+
+    .chart {
+        max-width: 600px;
+
+    }
+    
+}
+
+@media (max-width: 950px) {
+    .business-info {
+        width: 80%;
+    }
+}
+
+@media (max-width: 700px) {
+    .business-stat.title {
+        font-size: 15px;
+    }
+
+    .business-stat.amount {
+        font-size: 25px;
+    }
+
+    .icon-wrapper {
+        font-size: 25px;
+    }  
 }
 </style>

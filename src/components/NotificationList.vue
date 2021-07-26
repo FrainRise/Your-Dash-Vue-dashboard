@@ -2,40 +2,43 @@
     <div class="notification-group">
         <div class="notify-wrapper" @click="showNotificationList">
             <font-awesome-icon class="header-icons notification" icon="bell" />
-            <div class="notification-alert">
+            <div class="notification-alert" v-if="this.notifications.length > 0">
                 <h6 class="notification-number">{{ notificationsAmount }}</h6>
             </div>
         </div>
-        <div class="notification-list" v-if="isShownNotifications">
-            <div class="notification-list__header">
-                <h2 class="notification-list__title">Notifications</h2>
-            </div>
-            <div class="notification-list__body">
-                <div class="notifications-list__item-wrapper" v-if="!isSeen">
-                    <div 
-                        class="notifcation-list__item" 
-                        v-for="notification in notifications" 
-                        :key="notification.id"
-                    >
-                        <div class="notification-icon">
-                            <font-awesome-icon class="icon" icon="user-tie" />
-                        </div>  
-                        <div class="text-wrapper">
-                            <h2 class="item__title">
-                                {{ notification.notifTitle }}
-                            </h2>
-                            <p class="item__descr">
-                                {{ notification.notifBody }}
-                            </p>
-                        </div>  
-                    </div>
+        <transition name="notify">
+            <div class="notification-list" v-if="isShownNotifications">
+                <div class="notification-list__header">
+                    <h2 class="notification-list__title">Notifications</h2>
                 </div>
-                <p class="notification__empty" v-else>There are no notifications yet...</p>
+                <div class="notification-list__body">
+                    <div class="notifications-list__item-wrapper" v-if="!isSeen">
+                        <div 
+                            class="notifcation-list__item" 
+                            v-for="(notification, index) in notifications" 
+                            :key="notification.id"
+                            @click="handleMarkerSingle(index)"
+                        >
+                            <div class="notification-icon">
+                                <font-awesome-icon class="icon" icon="user-tie" />
+                            </div>  
+                            <div class="text-wrapper">
+                                <h2 class="item__title">
+                                    {{ notification.notifTitle }}
+                                </h2>
+                                <p class="item__descr">
+                                    {{ notification.notifBody }}
+                                </p>
+                            </div>  
+                        </div>
+                    </div>
+                    <p class="notification__empty" v-else>There are no notifications yet...</p>
+                </div>
+                <div class="notification-list__footer">
+                    <button class="btn__read" @click="handleMarkerAll">Mark as seen</button>
+                </div>
             </div>
-            <div class="notification-list__footer">
-                <button class="btn__read" @click="handleMarker">Mark as seen</button>
-            </div>
-        </div>
+        </transition>   
     </div>
 </template>
 
@@ -64,10 +67,19 @@ export default {
         }
     },
     methods: {
-        handleMarker() {
-            this.notifications.splice(0, this.notifications.length)
-            this.isSeen = true
-            return 
+        handleMarkerAll() {
+            if(this.notifications.length === 0) {
+                return alert('You have no notifications...')
+            } else {
+                this.notifications.splice(0, this.notifications.length)
+                this.isSeen = true
+            } 
+        },
+        handleMarkerSingle(index) {
+            this.notifications.splice(index, 1)
+            if(this.notifications.length === 0) {
+                this.isSeen = true
+            }
         }
     },
     computed: {
@@ -139,6 +151,12 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+    transition: transform .25s linear;
+}
+
+.notifcation-list__item:hover {
+    transform: scale(1.1);
 }
 
 .notification-icon {
@@ -194,6 +212,7 @@ export default {
     background-color: #5A5A66;
     color: #ACEB98;
     border: 1px solid #5A5A66;
+    border-radius: 15px;
     font-size: 15px;
     text-transform: capitalize;
     cursor: pointer;
@@ -203,5 +222,12 @@ export default {
 .btn__read:hover {
     color: #5A5A66;
     background: transparent;
+}
+
+.notify-enter-active, .notify-leave-active {
+  transition: opacity .5s;
+}
+.notify-enter, .notify-leave-to {
+  opacity: 0;
 }
 </style>

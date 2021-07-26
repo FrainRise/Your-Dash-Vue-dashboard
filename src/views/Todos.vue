@@ -1,6 +1,6 @@
 <template>
     <div class="todos">
-        <h2 class="todos__title">Welcome to your Plans list</h2>
+        <h2 class="todos__title">Your Plans list</h2>
         <p class="todos__descrp">Use '+' button below to add new plan</p>
         <hr class="divine-line" />
         <todo-list 

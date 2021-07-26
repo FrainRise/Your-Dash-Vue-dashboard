@@ -107,4 +107,28 @@ export default {
     color: #000;
 }
 
+@media (max-width: 850px) {
+    .search {
+        position: relative;
+        width: 200px;
+    }
+    .user-profile {
+        width: 30%;
+    }
+}
+@media (max-width: 650px) {
+    .main-header {
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 130px;
+        padding-left: 25px;
+    }
+    .search {
+        position: relative;
+        width: 250px;
+    }
+    .user-profile {
+        width: 30%;
+    }
+}
 </style>
