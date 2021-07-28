@@ -24,6 +24,13 @@
 <script>
 import VueApexCharts from 'vue3-apexcharts'
 import MyTitle from '@/components/UI/MyTitle.vue'
+import { 
+    incomeList, 
+    seriesPolarArea, 
+    seriesArea,
+    chartOptionsPolarArea,
+    chartOptionsArea 
+} from '@/localdata/index.js'
 export default {
     components: {
         apexcharts: VueApexCharts,
@@ -32,51 +39,11 @@ export default {
     data() {
         return {
             titleTextStats: 'Your Own Business Stats',
-            incomeList: [
-                {title: 'Total Income', amount: '125,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(145, 169, 229), rgb(84, 125, 229) 78%)', iconName: 'dollar-sign'},
-                {title: 'Total Expenses', amount: '25,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(182, 220, 247), rgb(70, 175, 249) 78%)', iconName: 'funnel-dollar'},
-                {title: 'Cash on hand', amount: '50,000', savePercentage: '25', themeColor: 'linear-gradient(315deg, rgb(206, 164, 251), rgb(158, 113, 206) 78%)', iconName: 'hand-sparkles'},
-                {title: 'Net Profit Margin', amount: '75,000', savePercentage: '75', themeColor: 'linear-gradient(315deg, rgb(180, 255, 225), rgb(133, 209, 179) 78%)', iconName: 'chart-line'},
-            ],
-        
-            seriesPolarArea: [125000, 25000, 50000, 75000],
-            seriesArea: [
-                {name: 'Income', data: [0, 25000, 45000, 15000, 15000, 10000, 15000]}, 
-                {name: 'Expenses', data: [15000, 5000, 0, 2000, 0, 3000, 0]},
-                {name: 'Cash on hand', data: [10000, 15000, 5000, 5000, 2000, 3000, 5000]},
-                {name: 'Net Profit Margin', data: [10000, 15000, 20000, 7500, 7500, 5000, 10000]},
-            ],
-
-            chartOptionsPolarArea: {
-                chart: {
-                    type: 'polarArea',
-                },
-                labels: ['Total Income', 'Total Expenses', 'Cash on hand', 'Net Profit Margin'],
-                legend: {
-                    position: 'bottom'
-                },
-                stroke: {
-                    colors: ['#fff']
-                },
-                fill: {
-                    opacity: 0.8
-                }
-            },
-            chartOptionsArea: {
-                chart: {
-                    type: 'area'
-                },
-                dataLabels: {
-                    enable: true
-                },
-                stroke: {
-                    curve: 'smooth'
-                },
-                xaxis: {
-                    type: 'string',
-                    categories: ["March", "April", "May", "June", "Jule", "August", "September"]
-                }
-            }
+            incomeList: incomeList,
+            seriesPolarArea: seriesPolarArea,
+            seriesArea: seriesArea,
+            chartOptionsPolarArea: chartOptionsPolarArea,
+            chartOptionsArea: chartOptionsArea
         }
     }
 }

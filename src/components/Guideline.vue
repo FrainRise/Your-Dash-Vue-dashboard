@@ -55,12 +55,14 @@ export default {
 
 .guideline-list {
     margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .guideline-list__item {
     background: #ACEB98;
     margin: 25px auto;
-    width: 50%;
+    width: 45%;
     height: 300px;
     display: flex;
     justify-content: center;
@@ -77,7 +79,7 @@ export default {
 }
 
 .text__wrapper {
-    padding: 50px;
+    padding: 25px;
     text-align: justify;
 }
 
