@@ -20,6 +20,7 @@
 import { ColorPicker } from 'vue-color-kit'
 import MyTitle from '@/components/UI/MyTitle.vue'
 import 'vue-color-kit/dist/vue-color-kit.css'
+
 export default {
     components: {
         ColorPicker,
@@ -66,4 +67,19 @@ export default {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
 }
 
+@media (max-width: 1300px) {
+    .color-preview {
+        width: 40%;
+        height: 150px;
+    }
+    
+}
+
+@media (max-width: 900px) {
+    .color-preview {
+        width: 20%;
+        height: 100px;
+    }
+
+}
 </style>

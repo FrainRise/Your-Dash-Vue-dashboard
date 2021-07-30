@@ -175,4 +175,33 @@ export default {
     0% { transform: rotate(0deg);}
     100%{ transform: rotate(360deg);}
 }
+
+@media (max-width: 1500px) {
+    .article-item {
+        max-width: 100%;
+        width: 45%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .article-item {
+        max-width: 100%;
+        width: 80%;
+    }
+}
+
+@media (max-width: 800px) {
+    .article-item {
+        max-width: 100%;
+        width: 80%;
+    }
+
+    .article__title {
+        font-size: 18px;
+    }
+
+    .article__description {
+        font-size: 15px;
+    }
+}
 </style>

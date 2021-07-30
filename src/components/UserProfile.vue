@@ -38,9 +38,7 @@ export default {
 }
 </script>
 
-<style >
-
-
+<style>
 .header-icons {
     font-size: 25px;
     cursor: pointer;

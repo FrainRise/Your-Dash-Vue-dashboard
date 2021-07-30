@@ -66,6 +66,7 @@ export default {
     height: 300px;
     display: flex;
     justify-content: center;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
 }
 
 .image__wrapper {

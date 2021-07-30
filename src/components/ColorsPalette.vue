@@ -12,6 +12,7 @@
 
 <script>
 import MyTitle from '@/components/UI/MyTitle.vue'
+
 export default {
     components: {
         MyTitle
@@ -56,5 +57,28 @@ export default {
     height: 300px;
     width: 20%;
     padding: 3%;
+}
+
+@media (max-width: 1300px) {
+    .color-item {
+        height: 200px;
+        padding: 3% 1%;
+    } 
+
+    .color-hex {
+        font-size: 20px; 
+    }
+    .color-name {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 950px) {
+    .color-hex {
+        font-size: 15px; 
+    }
+    .color-name {
+        font-size: 10px;
+    }
 }
 </style>

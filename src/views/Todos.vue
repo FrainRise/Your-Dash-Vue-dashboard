@@ -49,5 +49,4 @@ export default {
     max-width: 600px;
     border: 1px solid rgb(211, 202, 202);
 }
-
 </style>

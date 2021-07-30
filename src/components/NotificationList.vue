@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import { notificationList } from '@/localdata/index.js'
+
 export default {
     props: {
         isShownNotifications: {
@@ -57,12 +59,7 @@ export default {
     },
     data() {
         return {
-            notifications: [
-                {id: 1, notifTitle: 'Invitation for job', notifBody: 'Hello, Andrew! We want to invite you for an interview.'},
-                {id: 2, notifTitle: 'BUDZZ IN CRUDZ', notifBody: 'Hi, buddy! How ya doing?!'},
-                {id: 3, notifTitle: 'Present for FrainRise', notifBody: "You've got some bonuses for you premium account"},
-                {id: 4, notifTitle: 'Another day - another lifeline', notifBody: 'Do you want to be replenished spiritually? Check out the link'}
-            ],
+            notifications: notificationList,
             isSeen: false
         }
     },
@@ -222,6 +219,7 @@ export default {
 .notify-enter-active, .notify-leave-active {
   transition: opacity .5s;
 }
+
 .notify-enter, .notify-leave-to {
   opacity: 0;
 }

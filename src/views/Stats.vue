@@ -31,6 +31,7 @@ import {
     chartOptionsPolarArea,
     chartOptionsArea 
 } from '@/localdata/index.js'
+
 export default {
     components: {
         apexcharts: VueApexCharts,
@@ -139,7 +140,6 @@ export default {
     100% { -webkit-transform: rotate(0); transform: rotate(0);}
 }
 
-
 /* RESPONISVE */
 
 @media (max-width: 1500px) {
@@ -150,8 +150,7 @@ export default {
     .chart {
         max-width: 600px;
 
-    }
-    
+    }  
 }
 
 @media (max-width: 950px) {

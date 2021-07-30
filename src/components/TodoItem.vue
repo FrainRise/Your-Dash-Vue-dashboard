@@ -210,4 +210,29 @@ export default {
     box-shadow: 1px 2px 5px  #000;
 }
 
+@media (max-width: 1500px) {
+    .todo {
+
+        margin: 10px 100px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .todo {
+
+        margin: 10px 5%;
+    }
+    .todo-name {
+        font-size: 22px;
+    }
+    .todo-description {
+        font-size: 16px;
+    }
+    .todo-expirationDate {
+        font-size: 14px;
+    }
+    .todo-item-icons {
+        font-size: 15px;
+    }
+}
 </style>

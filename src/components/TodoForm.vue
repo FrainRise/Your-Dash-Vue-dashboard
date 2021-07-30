@@ -47,7 +47,7 @@ export default {
     },
     computed: {
         isAllFieldsFilled() {
-            return this.todo.name.length === 0 || this.todo.description.length === 0 || this.todo.expirationDate.length === 0
+            return this.todo.name.length === 0 || this.todo.description.length === 0 || this.todo.expirationDate.length === 0;
         }
     },
 }

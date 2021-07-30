@@ -31,6 +31,8 @@
 <script>
 import TodoItem from '@/components/TodoItem.vue'
 import TodoForm from '@/components/TodoForm.vue'
+import { todoListDefault } from '@/localdata/index.js'
+
 export default {
     components: {
         TodoItem,
@@ -38,10 +40,7 @@ export default {
     },
     data() {
         return {
-            todos: [
-                {id: 1, name: 'Learn JavaScript Advance Level', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut', expirationDate: "21.09.2021", isDone: false},
-                {id: 2, name: 'Learn Vue 3, Vuex and Vue Router', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut', expirationDate: "13.11.2021", isDone: false}
-                ],
+            todos: todoListDefault,
             isEdit: false,
             isDialogActive: false
         }
@@ -49,7 +48,7 @@ export default {
     methods: {
         createTodo(todo) {
             this.todos.push(todo)
-            console.log(this.todos)
+            // console.log(this.todos)
         },
         completedTodo(todo) {
             todo.isDone = !todo.isDone
@@ -58,7 +57,7 @@ export default {
             this.todos = this.todos.filter(itemTodo => itemTodo.id !== todo.id)
         },
         editTodo(todo, newTodo){
-            console.log(newTodo)
+            // console.log(newTodo)
             todo.name = newTodo.newName
             todo.description = newTodo.newDescription
             todo.expirationDate = newTodo.newExpirationDate

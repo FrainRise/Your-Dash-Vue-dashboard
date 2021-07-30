@@ -29,7 +29,7 @@
                     <font-awesome-icon class="sidebar-icons" icon="palette"/>
                     <a class="sidebar-links">Colors</a>
                 </router-link>
-                <li  class="sidebar-list__links">
+                <li  class="sidebar-list__links" @click="showAlert">
                     <font-awesome-icon class="sidebar-icons" icon="sign-out-alt"/>
                     <a class="sidebar-links">Logout</a>
                 </li>
@@ -40,11 +40,15 @@
 
 <script>
 export default {
+    methods: {
+        showAlert() {
+            return alert(`Thank you for using Your Dash! I hope see you soon!`)
+        }
+    }
 }
 </script>
 
 <style>
-
 .sidebar {
     position: fixed;
     background: #2A2B2E;

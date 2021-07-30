@@ -112,6 +112,7 @@ export default {
         position: relative;
         width: 200px;
     }
+    
     .user-profile {
         width: 30%;
     }
@@ -123,10 +124,12 @@ export default {
         height: 130px;
         padding-left: 25px;
     }
+
     .search {
         position: relative;
         width: 250px;
     }
+
     .user-profile {
         width: 30%;
     }

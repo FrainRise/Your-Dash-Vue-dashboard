@@ -21,6 +21,16 @@
                 <p class="chart-title">Simple Donut Bar</p>
             </div>
         </div>
+        <div class="charts__wrapper">
+            <div class="chart">
+                <apexcharts type="radar" height="350"  :options="chartOptionsRadar" :series="seriesRadar" />
+                <p class="chart-title">Radar - Multiple Series</p>
+            </div>
+            <div class="chart">
+                <apexcharts type="radialBar" height="350"  :options="chartOptionsRadialbar" :series="seriesRadialbar" />
+                <p class="chart-title">Multiple Radialbars</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -35,7 +45,11 @@ import {
     seriesPieBar,
     chartOptionsPieBar,
     seriesDonutBar,
-    chartOptionsDonutBar
+    chartOptionsDonutBar,
+    seriesRadar,
+    chartOptionsRadar,
+    seriesRadialbar,
+    chartOptionsRadialbar
 } from '@/localdata/index.js'
 
 export default {
@@ -53,7 +67,11 @@ export default {
             seriesPieBar: seriesPieBar,
             chartOptionsPieBar: chartOptionsPieBar,
             seriesDonutBar: seriesDonutBar,
-            chartOptionsDonutBar: chartOptionsDonutBar
+            chartOptionsDonutBar: chartOptionsDonutBar,
+            seriesRadar: seriesRadar,
+            chartOptionsRadar: chartOptionsRadar,
+            seriesRadialbar: seriesRadialbar,
+            chartOptionsRadialbar: chartOptionsRadialbar
         }
     },
 }
@@ -79,5 +97,15 @@ export default {
 .chart-title {
     font-size: 22px;
     font-weight: bold;
+}
+
+@media (max-width: 940px) {
+    .charts__wrapper {
+        flex-direction: column;
+    }
+
+    .chart {
+        margin: 25px 0;
+    }
 }
 </style>
