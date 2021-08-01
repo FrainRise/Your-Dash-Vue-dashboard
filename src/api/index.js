@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL = 'http://api.espn.com/v1/now'
+const URL = 'https://api.espn.com/v1/now'
 
 
 export const fecthLiveNewsData = async() => {

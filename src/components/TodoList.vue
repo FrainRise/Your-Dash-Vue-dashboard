@@ -23,7 +23,7 @@
         </transition-group>
     </div>
     <h2 class="warning-message" v-else style="color: red">
-        Todo list is empty
+        Plan list is empty
     </h2>
     <button class="btn__add-todo" @click="showDialog"><span>+</span></button>
 </template>
