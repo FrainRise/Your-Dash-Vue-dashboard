@@ -5,16 +5,8 @@
             <input class="search-input" type="text" placeholder="Search here..." />
         </div>
         <div class="user-profile">
-            <notification-list 
-                :isShownNotifications="isShownNotifications"
-                :showNotificationList="showNotificationList"
-                :closeNotificationList="closeNotificationList"
-            />
-            <user-profile 
-                :isShownProfile="isShownProfile"
-                :showDropdown="showDropdown"
-                :closeDropdown="closeDropdown"
-            />
+            <notification-list />
+            <user-profile />
         </div>
     </div>
 </template>
@@ -27,26 +19,6 @@ export default {
     components: {
         UserProfile,
         NotificationList
-    },
-    props: {
-        isShownProfile: {
-            type: Boolean
-        },
-        showDropdown: {
-            type: Function
-        },
-        closeDropdown: {
-            type: Function
-        },
-        isShownNotifications: {
-            type: Boolean
-        },
-        showNotificationList: {
-            type: Function
-        },
-        closeNotificationList: {
-            type: Function
-        }
     }
 }
 </script>

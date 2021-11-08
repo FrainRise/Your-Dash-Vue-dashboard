@@ -26,8 +26,9 @@ import {
     faChartPie
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import store from './store'
 
-const app = createApp(App)
+const app = createApp(App).use(store)
 const iconsArray = [
                     faHome, faListUl, faChartBar, faSignal, faInfoCircle, 
                     faSignOutAlt, faUserAlt, faBell, faAngleDown, faSearch, 

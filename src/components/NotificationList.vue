@@ -1,6 +1,6 @@
 <template>
     <div class="notification-group">
-        <div class="notify-wrapper" @click="showNotificationList">
+        <div class="notify-wrapper" @click="toggleNotificationList">
             <font-awesome-icon class="header-icons notification" icon="bell" />
             <div class="notification-alert" v-if="this.notifications.length > 0">
                 <h6 class="notification-number">{{ notificationsAmount }}</h6>
@@ -46,24 +46,17 @@
 import { notificationList } from '@/localdata/index.js'
 
 export default {
-    props: {
-        isShownNotifications: {
-            type: Boolean
-        },
-        showNotificationList: {
-            type: Function
-        },
-        closeNotificationList: {
-            type: Function
-        }
-    },
     data() {
         return {
+            isShownNotifications: false,
             notifications: notificationList,
             isSeen: false
         }
     },
     methods: {
+        toggleNotificationList() {
+            return this.isShownNotifications = !this.isShownNotifications
+        },
         handleMarkerAll() {
             if(this.notifications.length === 0) {
                 return alert('You have no notifications...')

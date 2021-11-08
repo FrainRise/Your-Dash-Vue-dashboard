@@ -7,6 +7,7 @@
                 v-model="color"
                 @changeColor="changeColor"
             />
+            <photoshop-picker v-model="color" class="picker" />
             <div 
                 class="color-preview"
                 :style="{backgroundColor: color}"
@@ -17,8 +18,8 @@
 </template>
 
 <script>
-import { ColorPicker } from 'vue-color-kit'
 import MyTitle from '@/components/UI/MyTitle.vue'
+import { ColorPicker } from 'vue-color-kit'
 import 'vue-color-kit/dist/vue-color-kit.css'
 
 export default {

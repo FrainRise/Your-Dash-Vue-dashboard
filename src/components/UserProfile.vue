@@ -1,6 +1,6 @@
 <template>
     <div class="user-settings">
-        <div class="user__icons-group" @click.stop="showDropdown">
+        <div class="user__icons-group" @click.stop="toggleDropdown">
             <font-awesome-icon class="header-icons" icon="user-alt" />
             <font-awesome-icon class="header-icons small-icon" icon="angle-down" :class="isShownProfile ? 'icon-rotation': null"/>
         </div>
@@ -24,16 +24,15 @@
 
 <script>
 export default {
-    props: {
-        isShownProfile: {
-            type: Boolean
-        },
-        showDropdown: {
-            type: Function
-        },
-        closeDropdown: {
-            type: Function
+    data() {
+        return {
+            isShownProfile: false,
         }
+    },
+    methods: {
+        toggleDropdown() {
+            return this.isShownProfile = !this.isShownProfile
+        },
     }
 }
 </script>

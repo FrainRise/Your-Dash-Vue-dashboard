@@ -60,16 +60,12 @@ export default {
         this.news = receivedData.data.feed;
     },
     methods: {
-        async refreshTheNews() {
-            const refreshedData = await fecthLiveNewsData()
-            this.news = refreshedData.data.feed;
-
+        refreshTheNews() {
+            this.$forceUpdate()
             this.isRefreshed = true
             setTimeout(() => {
                 this.isRefreshed = false
             }, 3000)
-
-            console.log('Refreshed data')
         },
         closeAlert(){
             this.isRefreshed = false
